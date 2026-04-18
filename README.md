@@ -22,3 +22,6 @@ This project is developed to manage textile inventory such as stock, products, a
 
 ## 👤 Author
 Logesh R
+
+## 🌐 Live Demo
+https://logeshk-raja.github.io/textile-inventory-system/
