@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+
+    <div class="container mt-4">
+
+        <div class="card shadow-lg border-0"
+             style="background: linear-gradient(135deg,#ffeef3,#f4f1ff);
+                    border-radius:20px;">
+
+            <!-- HEADER -->
+            <div class="d-flex justify-content-between align-items-center p-4">
+                <h3 class="fw-bold mb-0">Billing</h3>
+
+                <a th:href="@{/billing/add}"
+                   class="btn btn-primary rounded-pill px-4">
+                    Add Bill
+                </a>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-responsive px-4 pb-4">
+                <table class="table">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Bill No</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr th:each="bill, stat : ${bills}">
+                            <td th:text="${stat.count}"></td>
+                            <td th:text="${bill.billNumber}"></td>
+                            <td th:text="${bill.billDate}"></td>
+
+                            <td th:text="${bill.customer != null ? bill.customer.name : 'N/A'}"></td>
+
+                            <td th:text="'₹ ' + ${bill.grandTotal}"></td>
+
+                            <td>
+                                <span th:if="${bill.paymentStatus == 'Paid'}"
+                                      class="badge bg-success">Paid</span>
+
+                                <span th:if="${bill.paymentStatus == 'Pending'}"
+                                      class="badge bg-danger">Pending</span>
+                            </td>
+
+                            <td>
+                                <a th:href="@{/billing/edit/{id}(id=${bill.id})}"
+                                   class="btn btn-warning btn-sm">Edit</a>
+
+                                <a th:href="@{/billing/delete/{id}(id=${bill.id})}"
+                                   class="btn btn-danger btn-sm">
+                                   Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr th:if="${#lists.isEmpty(bills)}">
+                            <td colspan="7" class="text-center">No Data</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</html>

@@ -1,0 +1,115 @@
+<div th:fragment="content">
+
+<style>
+
+.product-card{
+width:420px;
+margin:auto;
+margin-top:60px;
+padding:30px;
+border-radius:15px;
+background:linear-gradient(135deg,#f1c6d0,#cfd9ff);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.product-card h2{
+text-align:center;
+margin-bottom:20px;
+font-weight:600;
+}
+
+.product-card label{
+font-weight:500;
+margin-top:10px;
+}
+
+.product-card input,
+.product-card select{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:none;
+margin-top:5px;
+margin-bottom:10px;
+background:#f3f3f3;
+}
+
+.product-card input:focus,
+.product-card select:focus{
+outline:none;
+background:#ffffff;
+box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+
+.btn-save{
+background:linear-gradient(90deg,#6c63ff,#ff6fa5);
+border:none;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+float:right;
+font-weight:500;
+}
+
+.btn-save:hover{
+opacity:0.9;
+}
+
+.back-link{
+text-decoration:none;
+color:#333;
+font-size:14px;
+}
+
+</style>
+
+
+<div class="product-card">
+
+<h2>Add Product</h2>
+
+<form th:action="@{/products/save}" method="post">
+
+<label>Product Name</label>
+<input type="text" name="productName" placeholder="Enter product name" required>
+
+<label>Quantity</label>
+<input type="number" name="quantity" placeholder="Enter quantity" required>
+
+<label>Price</label>
+<input type="number" step="0.01" name="price" placeholder="Enter price" required>
+
+<label>Category</label>
+<select name="categoryId" required>
+<option value="">Select Category</option>
+
+<option th:each="c : ${categories}"
+        th:value="${c.id}"
+        th:text="${c.name}">
+</option>
+
+</select>
+
+<label>Supplier</label>
+<select name="supplierId" required>
+
+<option value="">Select Supplier</option>
+
+<option th:each="s : ${suppliers}"
+        th:value="${s.id}"
+        th:text="${s.name}">
+</option>
+
+</select>
+
+<br>
+
+<a href="/products" class="back-link">Back</a>
+
+<button type="submit" class="btn-save">Save Product</button>
+
+</form>
+
+</div>
+
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<div class="container">
+
+    <div class="card shadow-lg border-0"
+         style="background: linear-gradient(135deg,#ffeef3,#f4f1ff); border-radius:15px;">
+
+        <div class="card-header text-center text-white"
+             style="background: linear-gradient(135deg,#ff7eb3,#7873f5);">
+            <h4><i class="bi bi-receipt"></i> Add Billing</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form th:action="@{/billing/save}" th:object="${billing}" method="post">
+
+                <!-- BILL NUMBER -->
+                <div class="mb-3">
+                    <label>Bill Number</label>
+                    <input type="text" th:field="*{billNumber}" class="form-control" readonly>
+                </div>
+
+                <!-- CUSTOMER -->
+                <div class="mb-3">
+                    <label>Customer</label>
+                    <select th:field="*{customer.id}" class="form-control">
+                        <option value="">Select Customer</option>
+                        <option th:each="c : ${customers}"
+                                th:value="${c.id}"
+                                th:text="${c.name}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- ORDER -->
+                <div class="mb-3">
+                    <label>Order</label>
+                    <select th:field="*{order.id}" class="form-control">
+                        <option value="">Select Order</option>
+                        <option th:each="o : ${orders}"
+                                th:value="${o.id}"
+                                th:text="${o.id}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- SUB TOTAL -->
+                <div class="mb-3">
+                    <label>Sub Total</label>
+                    <input type="number" th:field="*{subTotal}" class="form-control">
+                </div>
+
+                <!-- TAX -->
+                <div class="mb-3">
+                    <label>Tax Amount</label>
+                    <input type="number" th:field="*{taxAmount}" class="form-control">
+                </div>
+
+                <!-- DISCOUNT -->
+                <div class="mb-3">
+                    <label>Discount</label>
+                    <input type="number" th:field="*{discount}" class="form-control">
+                </div>
+
+                <!-- GRAND TOTAL -->
+                <div class="mb-3">
+                    <label>Grand Total</label>
+                    <input type="number" th:field="*{grandTotal}" class="form-control">
+                </div>
+
+                <!-- PAYMENT STATUS -->
+                <div class="mb-3">
+                    <label>Status</label>
+                    <select th:field="*{paymentStatus}" class="form-control">
+                        <option value="Pending">Pending</option>
+                        <option value="Paid">Paid</option>
+                    </select>
+                </div>
+
+                <!-- REMARKS -->
+                <div class="mb-3">
+                    <label>Remarks</label>
+                    <textarea th:field="*{remarks}" class="form-control"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="/billing" class="btn btn-secondary">Back</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* Topbar */
+.topbar {
+    background: black;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* Main content */
+.content {
+    flex: 1;
+    padding: 30px;
+}

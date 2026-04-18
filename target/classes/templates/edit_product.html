@@ -1,0 +1,43 @@
+<div th:fragment="content">
+
+    <h2>Edit Product</h2>
+
+    <form th:action="@{/products/save}" method="post">
+
+        <!-- 🔥 IMPORTANT -->
+        <input type="hidden" name="id" th:value="${product.id}">
+
+        <label>Product Name</label>
+        <input type="text" name="productName"
+               th:value="${product.productName}" required>
+
+        <label>Quantity</label>
+        <input type="number" name="quantity"
+               th:value="${product.quantity}" required>
+
+        <label>Price</label>
+        <input type="number" step="0.01" name="price"
+               th:value="${product.price}" required>
+
+        <label>Category</label>
+        <select name="categoryId" required>
+            <option th:each="c : ${categories}"
+                    th:value="${c.id}"
+                    th:text="${c.name}"
+                    th:selected="${c.id == product.category.id}">
+            </option>
+        </select>
+
+        <label>Supplier</label>
+        <select name="supplierId" required>
+            <option th:each="s : ${suppliers}"
+                    th:value="${s.id}"
+                    th:text="${s.name}"
+                    th:selected="${s.id == product.supplier.id}">
+            </option>
+        </select>
+
+        <button type="submit">Update Product</button>
+    </form>
+
+</div>

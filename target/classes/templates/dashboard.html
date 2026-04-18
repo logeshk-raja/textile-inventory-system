@@ -1,0 +1,84 @@
+<div th:fragment="content">
+    <style>
+        .dashboard-container { 
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1f2937; 
+        }
+
+        .dashboard-header h1 {
+            font-size: 28px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .welcome-text {
+            color: #6b7280;
+            margin-bottom: 35px;
+            font-size: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffe6f0 0%, #e6f0ff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4b5563;
+        }
+
+        .stat-number {
+            margin: 15px 0 0 0;
+            font-size: 36px;
+            font-weight: 800;
+            color: #111827;
+        }
+    </style>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Dashboard</h1>
+            <p class="welcome-text">Welcome back, <b>Admin</b></p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Products</h3>
+                <h1 class="stat-number" th:text="${totalProducts}">0</h1>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Orders</h3>
+                <h1 class="stat-number" th:text="${totalOrders}">0</h1>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Customers</h3>
+                <h1 class="stat-number" th:text="${totalCustomers}">0</h1>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Suppliers</h3>
+                <h1 class="stat-number" th:text="${totalSuppliers}">0</h1>
+            </div>
+        </div>
+    </div>
+</div>

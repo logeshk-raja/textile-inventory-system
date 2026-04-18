@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Signup</title>
+<style>
+body{
+ height:100vh;display:flex;justify-content:center;align-items:center;
+ background:linear-gradient(135deg,#ff9a9e,#a1c4fd);
+ font-family:Segoe UI;
+}
+.card{
+ width:420px;padding:35px;border-radius:20px;
+ background:#fff;box-shadow:0 15px 40px rgba(0,0,0,.25);
+ text-align:center;
+}
+input,button{
+ width:100%;padding:12px;margin:12px 0;border-radius:25px;border:none;
+}
+button{
+ background:linear-gradient(135deg,#6a82fb,#fc5c7d);
+ color:#fff;font-weight:600;cursor:pointer;
+}
+a{color:#fc5c7d;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Create Account</h2>
+<form action="/admin/signup" method="post">
+<input type="text" placeholder="Username" required>
+<input type="email" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+<button type="submit">Sign Up</button>
+</form>
+<a href="/admin/login">Already have account? Login</a>
+</div>
+
+</body>
+</html>
