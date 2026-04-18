@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>My Orders</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#f4f6f9;
+font-family:Segoe UI;
+}
+
+.container{
+margin-top:50px;
+}
+
+.card{
+border:none;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.back-btn{
+background:#0d6efd;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+text-decoration:none;
+font-size:14px;
+}
+
+.back-btn:hover{
+background:#0b5ed7;
+color:white;
+}
+
+.status-pending{
+color:#ff9800;
+font-weight:600;
+}
+
+.status-delivered{
+color:#28a745;
+font-weight:600;
+}
+
+.view-btn{
+padding:4px 10px;
+font-size:13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card p-4">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h3>My Orders</h3>
+
+<a th:href="@{/user/dashboard}" class="back-btn">
+← Back to Dashboard
+</a>
+
+</div>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+
+<tr>
+<th>Order ID</th>
+<th>Product</th>
+<th>Quantity</th>
+<th>Total</th>
+<th>Payment</th>
+<th>Order Date</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr th:if="${orders == null or #lists.isEmpty(orders)}">
+<td colspan="8" class="text-center">No Orders Found</td>
+</tr>
+
+<tr th:each="o : ${orders}">
+
+<td th:text="${o.id}"></td>
+
+<td th:text="${o.product != null ? o.product.productName : 'Product Not Available'}"></td>
+
+<td th:text="${o.quantity}"></td>
+
+<td th:text="'₹ ' + ${o.totalPrice}"></td>
+
+<td th:text="${o.paymentMethod}"></td>
+
+<td th:text="${o.orderDate}"></td>
+
+<td>
+<span th:text="${o.status}"
+th:classappend="${o.status == 'DELIVERED'} ? 'status-delivered' : 'status-pending'">
+</span>
+</td>
+
+<td>
+
+<a th:href="@{'/user/order/view/' + ${o.id}}" 
+   class="btn btn-info btn-sm">
+View
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="sidebar">
+
+<style>
+    .sidebar {
+        width: 260px;
+        background: linear-gradient(180deg, #1d2671, #2575fc);
+        color: #fff;
+        padding: 20px;
+        min-height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar h4 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .menu-btn {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        text-align: left;
+        padding: 10px 12px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-btn:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .submenu a {
+        display: block;
+        padding: 8px 30px;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.9;
+    }
+
+    .submenu a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="sidebar">
+    <h4>Inventory System</h4>
+
+    <a href="/dashboard" class="menu-btn">
+        <span>Dashboard</span>
+    </a>
+
+    <button class="menu-btn" data-bs-toggle="collapse" data-bs-target="#orders">
+        <span>Order Management</span>
+        <span>▾</span>
+    </button>
+    <div id="orders" class="collapse submenu">
+        <a href="/orders">Order List</a>
+        <a href="/payments">Payment Details</a>
+    </div>
+
+    <button class="menu-btn" data-bs-toggle="collapse" data-bs-target="#categories">
+        <span>Categories</span>
+        <span>▾</span>
+    </button>
+    <div id="categories" class="collapse submenu">
+        <a href="/categories/add">Add Category</a>
+        <a href="/categories">View Categories</a>
+    </div>
+
+    <button class="menu-btn" data-bs-toggle="collapse" data-bs-target="#products">
+        <span>Products</span>
+        <span>▾</span>
+    </button>
+    <div id="products" class="collapse submenu">
+        <a href="/products/add">Add Product</a>
+        <a href="/products">View Products</a>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

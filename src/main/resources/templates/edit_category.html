@@ -1,0 +1,41 @@
+<div th:fragment="content">
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4">
+
+            <div class="card shadow-lg border-0 rounded-4 p-4">
+                <h4 class="text-center mb-4">
+                    <i class="bi bi-pencil-square"></i> Edit Category
+                </h4>
+
+                <form th:action="@{/categories/save}"
+                      th:object="${category}"
+                      method="post">
+
+                    <!-- Hidden ID -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <div class="mb-3">
+                        <input type="text"
+                               class="form-control rounded-pill"
+                               th:field="*{categoryName}"
+                               placeholder="Category Name"
+                               required />
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-warning w-100 rounded-pill">
+                        Update Category
+                    </button>
+                </form>
+
+                <a href="/categories"
+                   class="d-block text-center mt-3 text-decoration-none">
+                    ← Back to Categories
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

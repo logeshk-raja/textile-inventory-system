@@ -1,0 +1,42 @@
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background: #1e272e;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;              /* 🔥 FIX */
+}
+
+.sidebar-menu {
+    flex: 1;                    /* 🔥 takes remaining height */
+}
+
+.sidebar input {
+    width: 80%;
+    padding: 8px;
+    margin: 12px;
+    border-radius: 20px;
+    border: none;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #485460;
+}
+
+/* Footer inside sidebar */
+.sidebar-footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #d2dae2;
+    border-top: 1px solid #485460;
+}

@@ -1,0 +1,122 @@
+<!-- SUPPLIER LIST – CENTERED CONTENT -->
+
+<style>
+    .content-center{
+        display:flex;
+        justify-content:center;
+        padding:40px 0;
+    }
+
+    .supplier-wrapper{
+        width:1100px;
+        background: linear-gradient(135deg,#ffe6f0,#e6f0ff);
+        padding:30px;
+        border-radius:22px;
+        box-shadow:0 18px 45px rgba(0,0,0,.25);
+    }
+
+    .supplier-header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:20px;
+    }
+
+    .supplier-header h3{
+        font-size:22px;
+        display:flex;
+        gap:10px;
+        color:#1f2937;
+    }
+
+    .add-btn{
+        padding:10px 22px;
+        border-radius:25px;
+        background:linear-gradient(135deg,#6a82fb,#fc5c7d);
+        color:#fff;
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        background:#fff;
+        border-radius:16px;
+        overflow:hidden;
+    }
+
+    thead{ background:#6366f1; }
+
+    th{
+        padding:14px;
+        color:#fff;
+        font-size:14px;
+        text-align:center;
+    }
+
+    td{
+        padding:13px;
+        text-align:center;
+        font-size:14px;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+    tr:nth-child(even){ background:#f9fafb; }
+    tr:hover{ background:#eef2ff; }
+
+    .delete-btn{
+        padding:6px 16px;
+        border-radius:20px;
+        background:#ef4444;
+        color:#fff;
+        text-decoration:none;
+        font-size:13px;
+    }
+</style>
+
+<div class="content-center">
+
+    <div class="supplier-wrapper">
+
+        <div class="supplier-header">
+            <h3><i class="fa-solid fa-truck"></i> Suppliers</h3>
+
+            <a href="/suppliers/add" class="add-btn">
+                <i class="fa-solid fa-plus"></i> Add Supplier
+            </a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="s : ${suppliers}">
+                    <td th:text="${s.id}"></td>
+                    <td th:text="${s.name}"></td>
+                    <td th:text="${s.phone}"></td>
+                    <td th:text="${s.email}"></td>
+                    <td th:text="${s.address}"></td>
+                    <td>
+                        <a th:href="@{/suppliers/delete/{id}(id=${s.id})}"
+                           class="delete-btn"
+                           onclick="return confirm('Delete this supplier?')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,111 @@
+<div th:fragment="content">
+
+<style>
+
+.report-container{
+max-width:1100px;
+margin:auto;
+}
+
+.report-card{
+border:none;
+border-radius:15px;
+padding:25px;
+transition:0.3s;
+cursor:pointer;
+}
+
+.report-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn-report{
+border-radius:30px;
+width:100%;
+font-weight:600;
+}
+
+</style>
+
+
+<div class="container report-container mt-4">
+
+<h3 class="fw-bold mb-4">Reports</h3>
+
+<div class="row g-4">
+
+<!-- PRODUCT REPORT -->
+<div class="col-md-4">
+<div class="card report-card shadow-sm">
+
+<h5>Product Report</h5>
+<p class="text-muted">All product inventory details</p>
+
+<a href="/reports/products" class="btn btn-primary btn-report">
+Download
+</a>
+
+</div>
+</div>
+
+<!-- CUSTOMER REPORT -->
+<div class="col-md-4">
+<div class="card report-card shadow-sm">
+
+<h5>Customer Report</h5>
+<p class="text-muted">Registered customer details</p>
+
+<a href="/reports/customers" class="btn btn-success btn-report">
+Download
+</a>
+
+</div>
+</div>
+
+<!-- SUPPLIER REPORT -->
+<div class="col-md-4">
+<div class="card report-card shadow-sm">
+
+<h5>Supplier Report</h5>
+<p class="text-muted">Supplier information</p>
+
+<a href="/reports/suppliers" class="btn btn-warning btn-report">
+Download
+</a>
+
+</div>
+</div>
+
+<!-- ORDER REPORT -->
+<div class="col-md-6">
+<div class="card report-card shadow-sm">
+
+<h5>Order Report</h5>
+<p class="text-muted">Customer order history</p>
+
+<a href="/reports/orders" class="btn btn-info btn-report">
+Download
+</a>
+
+</div>
+</div>
+
+<!-- BILLING REPORT -->
+<div class="col-md-6">
+<div class="card report-card shadow-sm">
+
+<h5>Billing Report</h5>
+<p class="text-muted">Invoice & payment details</p>
+
+<a href="/reports/billing" class="btn btn-danger btn-report">
+Download
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>

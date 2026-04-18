@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome | Inventory System</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f1f3f6;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .box{
+            background:#fff;
+            padding:30px;
+            width:350px;
+            text-align:center;
+            border-radius:8px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+        h2{
+            margin-bottom:20px;
+        }
+        a{
+            display:block;
+            margin:15px 0;
+            padding:12px;
+            text-decoration:none;
+            color:#fff;
+            border-radius:5px;
+            font-weight:bold;
+        }
+        .user{
+            background:#2874f0;
+        }
+        .admin{
+            background:#ff9f00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Welcome</h2>
+    <p>Select Login Type</p>
+
+    <a href="/user/login" class="user">User Login</a>
+    <a href="/admin/login" class="admin">Admin Login</a>
+</div>
+
+</body>
+</html>
